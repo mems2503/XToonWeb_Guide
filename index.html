@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XToonWeb – Official Starter Kit, Manual & Video Guides</title>
+  <meta name="description" content="Download free character sprite sheets, 90-page official user manual, reference video clips, and access video tutorials for XToonWeb.IN.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://xtoonweb.in/image/xtoonweb-app-icon-192x192.png">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+    body {
+      background: #121318;
+      color: #f0f0f5;
+      padding: 0 16px 80px 16px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Hero Header */
+    header {
+      text-align: center;
+      padding: 45px 10px 25px 10px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 210, 211, 0.12);
+      border: 1px solid #00d2d3;
+      color: #00d2d3;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    header h1 span {
+      background: linear-gradient(135deg, #00d2d3, #e84393);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 14px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Dual Download Box */
+    .download-card-box {
+      background: #161822;
+      border: 1.5px solid #282e3d;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 20px 0 35px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .download-card-box h2 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .download-card-box p {
+      font-size: 12.5px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .dl-btn {
+      flex: 1;
+      min-width: 260px;
+      max-width: 380px;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-github {
+      background: linear-gradient(135deg, #00cec9, #0984e3);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 206, 201, 0.4);
+    }
+    .btn-github:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 206, 201, 0.6);
+    }
+
+    .btn-archive {
+      background: #232733;
+      color: #fdcb6e;
+      border: 1.5px solid #fdcb6e;
+    }
+    .btn-archive:hover {
+      background: #fdcb6e;
+      color: #111;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(253, 203, 110, 0.4);
+    }
+
+    /* Video Tutorial Spotlight Card */
+    .tutorial-highlight-card {
+      background: linear-gradient(135deg, rgba(232, 67, 147, 0.1), rgba(9, 132, 227, 0.15));
+      border: 1.5px solid #e84393;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 35px;
+      box-shadow: 0 0 25px rgba(232, 67, 147, 0.25);
+    }
+
+    .tutorial-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ff7675;
+      text-align: center;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .channels-grid { grid-template-columns: 1fr; }
+    }
+
+    .channel-box {
+      background: #181b26;
+      border: 1.5px solid #2d3345;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .channel-box:hover {
+      transform: translateY(-3px);
+      border-color: #00d2d3;
+      box-shadow: 0 6px 20px rgba(0, 210, 211, 0.3);
+    }
+
+    .channel-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .channel-lang {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2ed573;
+      background: rgba(46, 213, 115, 0.12);
+      border: 1px solid rgba(46, 213, 115, 0.4);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    /* Giant CTA Button to Start Animating */
+    .cta-hub {
+      text-align: center;
+      margin: 35px 0 45px 0;
+    }
+
+    .big-animate-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #ff4757, #ff6b81 50%, #e84393);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 40px;
+      box-shadow: 0 0 28px rgba(255, 71, 87, 0.5), 0 8px 30px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .big-animate-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 40px rgba(255, 71, 87, 0.8), 0 10px 35px rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+
+    /* FAQ Section */
+    .faq-wrapper {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #282e3d;
+    }
+
+    .faq-header-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ff7675;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 12px 16px;
+      margin: 15px 0 25px 0;
+      background: #181b24;
+      border: 1.5px solid #282e3d;
+      border-radius: 8px;
+      color: #00d2d3;
+      font-size: 13.5px;
+      outline: none;
+      transition: 0.2s;
+    }
+    .search-bar:focus {
+      border-color: #00d2d3;
+      box-shadow: 0 0 12px rgba(0, 210, 211, 0.25);
+    }
+
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-section-badge {
+      color: #00d2d3;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 15px;
+      border-bottom: 1px dashed #333;
+      padding-bottom: 4px;
+    }
+
+    .faq-box {
+      background: #181b26;
+      border: 1px solid #282e3d;
+      border-radius: 6px;
+      padding: 14px 18px;
+      transition: border-color 0.2s ease;
+    }
+    .faq-box:hover { border-color: #00d2d3; }
+
+    .faq-box b {
+      color: #00d2d3;
+      font-size: 13.5px;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .faq-box span {
+      color: #ddd;
+      font-size: 12.8px;
+      line-height: 1.65;
+      display: block;
+    }
+
+    code {
+      background: #121318;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #fdcb6e;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11.5px;
+      color: #666;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #222634;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header>
+      <div class="badge-pill">⚡ OFFICIAL CREATIVE HUB ⚡</div>
+      <h1>XToonWeb <span>Starter Kit & Guide</span></h1>
+      <p>Download ready-to-rig character sprite sheets, 90-page comprehensive user manual, demo video clips, and format blueprints.</p>
+    </header>
+
+    <!-- 1. DUAL DOWNLOAD BOX -->
+    <div class="download-card-box">
+      <h2>🎁 Download XToonWeb Starter Kit & Manual</h2>
+      <p>Contains: 90-Page User Manual PDF, Character Sprites, Props, Video Demos, and 2048×2048 Master Grid.</p>
+      
+      <div class="btn-row">
+        <!-- REPLACE WITH YOUR GITHUB RELEASE DOWNLOAD LINK -->
+        <a href="https://github.com/YOUR_USERNAME/XToonWebREPO/releases/download/v1.0/XToonWeb_Starter_Kit.zip" target="_blank" rel="noopener" class="dl-btn btn-github">
+          <span>⬇️</span> Download via GitHub (Primary)
+        </a>
+
+        <!-- REPLACE WITH YOUR INTERNET ARCHIVE DOWNLOAD LINK -->
+        <a href="https://archive.org/download/xtoonweb_starter_kit/XToonWeb_Starter_Kit.zip" target="_blank" rel="noopener" class="dl-btn btn-archive">
+          <span>🏛️</span> Download via Archive.org (Mirror)
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. HIGHLIGHTED YOUTUBE TUTORIALS SPOTLIGHT -->
+    <div class="tutorial-highlight-card">
+      <div class="tutorial-title">📺 For video tutorials on how to animate with XToonWeb, follow our YouTube channels:</div>
+      
+      <div class="channels-grid">
+        <!-- CHANNEL 1: DISCOVERY GOLPO -->
+        <a href="https://www.youtube.com/@DiscoveryGolpo" target="_blank" rel="noopener" class="channel-box">
+          <div class="channel-name"><span>🎬</span> Discovery Golpo ↗</div>
+          <div class="channel-lang">Bengali & English Tutorials</div>
+        </a>
+
+        <!-- CHANNEL 2: BUGGU DUGGU OFFICIAL -->
+        <a href="https://www.youtube.com/@BugguDugguOfficial" target="_blank" rel="noopener" class="channel-box">
+          <div class="channel-name"><span>🌟</span> Buggu Duggu Official ↗</div>
+          <div class="channel-lang">Hindi & English Tutorials</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. GIANT PROMINENT CTA BUTTON -->
+    <div class="cta-hub">
+      <a href="https://xtoonweb.in" target="_blank" rel="noopener" class="big-animate-btn">
+        <span>🚀</span> Start Animating on XToonWeb.IN ➔
+      </a>
+    </div>
+
+    <!-- 4. SEARCHABLE 33 FAQ REPOSITORY -->
+    <div class="faq-wrapper">
+      <div class="faq-header-title">💡 Important FAQs on Official XToonWeb</div>
+      <p style="text-align: center; color: #888; font-size: 12.5px;">Search through our complete knowledge base for instant answers and workflow techniques:</p>
+
+      <input type="text" id="quickSearch" class="search-bar" placeholder="🔍 Type keyword to search questions (Chroma, Trajectory, Loop, Pin Tool, Walk Cycle)..." onkeyup="searchFaq()">
+
+      <div class="faq-grid">
+
+        <!-- SECTION 1 -->
+        <div class="faq-section-badge">🌐 General Overview & File Privacy</div>
+
+        <div class="faq-box">
+          <b>1. What is XToonWeb, and what are its three creative modules?</b>
+          <span>XToonWeb is a high-performance, client-side digital media suite that runs directly inside your web browser. It combines three dedicated creative engines:<br>
+          • <b>Module 1 (XToonWeb):</b> Precision frame-by-frame media editing, chroma key background cutout, color replacement, and pixel blending.<br>
+          • <b>Module 2 (Multi-Layer Combine):</b> Multi-asset video, GIF, and image compositing with 6-point (A ➔ F) motion path graphics and text layer design.<br>
+          • <b>Module 3 (XToonWeb Animate):</b> 2D skeletal puppet rigging, automated lip-syncing, procedural eye-blinking, 2-click interactive pin attachment, and 360° curve mesh warping.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>2. Are my uploaded pictures, GIFs, or video clips saved on a remote server?</b>
+          <span>Never! Your privacy and asset security are our highest priority. XToonWeb runs 100% locally on your computer or phone using modern HTML5 Canvas and Web Worker technology. Your private media files are processed strictly within your browser's local memory and are never uploaded, stored, or transmitted over the internet.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>3. Can I edit or import large, full-length video files?</b>
+          <span>XToonWeb is specifically engineered for short-form video clips, animated loops, and sprites (ideally 3 to 10 seconds). Because all pixel rendering and frame-by-frame compositing occur entirely inside your browser's local RAM without server compression, attempting to process large or long videos can overload device memory and cause the browser tab to freeze or crash. For a smooth, lightning-fast experience, keep your clips short and punchy!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>4. How does the 'Project Save & Load' feature work, and where is my work stored?</b>
+          <span>Your projects are 100% private and never stored on any remote cloud server! Clicking <b>'💾 Project ➔ Save Project'</b> (or pressing <b>Ctrl + S</b>) instantly compiles your workspace into a lightweight <code>.json</code> project file downloaded directly to your local device. It captures all character rigs, keyframe poses (A through F), multi-layer motion paths, in/out timings, and visual assets. To resume your work anytime, simply click <b>'📂 Load Project'</b> and select your saved <code>.json</code> file—XToonWeb automatically detects your project type and restores your complete session in seconds, with no need to re-upload media or re-edit anything from scratch!</span>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="faq-section-badge">🎨 Module 1: XToonWeb (Media Editing, Chroma Key & Cutout Studio)</div>
+
+        <div class="faq-box">
+          <b>5. How do I cleanly remove a green screen or solid background using Chroma Key Studio?</b>
+          <span>Open the 'Chroma Key Studio' box and check the <b>Active</b> toggle. Click the <b>Pick</b> (eyedropper) button and click anywhere on your canvas green or blue background.<br>
+          • <b>Tolerance:</b> Calibrates color distance. For compressed MP4/WebM videos, a value around <b>35 – 45</b> gives an ultra-clean cutout.<br>
+          • <b>Noise (Clean):</b> Powered by an intelligent Despeckle Island engine! Setting it to <b>3 – 7</b> automatically sweeps away floating white/skin specks, compression noise, and dust without touching the character.<br>
+          • <b>Edges (Choke):</b> Setting to <b>1 – 2</b> contracts outer borders to shave off thin green fringing for a razor-sharp, studio-grade composite!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>6. What is the difference between '🌐 All Frames' and '📍 This Frame' scopes?</b>
+          <span>• <b>🌐 All Frames (Global Scope):</b> Applies your cutout, color replacement, or edits globally across every single frame of your animation or video clip in one go.<br>
+          • <b>📍 This Frame (Precision Scope):</b> Automatically pauses playback at your current timeline frame. Any brush strokes, erasures, or edits you apply will affect only that specific paused frame, leaving the rest of the clip untouched.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>7. How do 'Magic Click' and 'Select Mask' work for precision sprite recoloring and shading?</b>
+          <span>Module 1 offers two intelligent selection workflows depending on your artistic needs:<br>
+          • <b>Magic Click (Instant Flood-Fill):</b> In 'Transparent' mode, clicking any pixel instantly erases all contiguous matching colors within your chosen tolerance; in 'Replace Color' mode, it flood-fills that entire color region with a flat brush color in a single click.<br>
+          • <b>Select Mask:</b> Clicking <b>'🎯 Select Mask'</b> instantly activates an intelligent contextual preset—automatically calibrating the tolerance to <b>15</b> to prevent color bleeding across light skin tones, clothing, and backgrounds. Clicking any body part locks that entire zone inside an animated neon-cyan dotted boundary (Marching Ants). Once locked, you can freely paint with the <b>Paint Brush</b> across as many strokes and colors as you like—paint is strictly isolated inside the boundary with zero overspray!<br>
+          • <b>Auto-Restoring Tolerance on Deselect:</b> Pressing <b>Esc</b> or clicking <b>'❌ Deselect Mask'</b> immediately clears the boundary and automatically restores your tolerance back to <b>35</b> for effortless background cutouts!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>8. How does the 'Lasso Protect' shield work for armor protection, draggable repositioning, and geometric circle cropping?</b>
+          <span>Lasso Protect is a multi-purpose protection armor and precision geometric cropping engine built directly into Module 1:<br>
+          • <b>Fail-Safe Character Armor (Freehand):</b> When cutting out complex backgrounds, freeze delicate artwork (hair fringes, fingers, clothing, props) by looping around them. A dashed red shield (<code>rgba(220, 53, 69, 0.18)</code>) locks those pixels—no matter how vigorously you erase, paint, or magic-click outside, the protected pixels remain 100% untouched and uncorrupted.<br>
+          • <b>Geometric Shapes & 1-Click Circle Crop:</b> Choose from 7 precision geometric shapes—<b>Circle</b> (360° ultra-smooth micro-curve), <b>Ellipse</b>, <b>Rectangle</b>, <b>Square</b>, <b>Triangle</b>, <b>Pentagon</b> (5-gon), and <b>Hexagon</b> (6-gon)! To perform an instant transparent <b>Circle Crop</b> or <b>Hexagonal Avatar Cutout</b>, simply drop a geometric shield over your object and drag the <b>Eraser</b> or <b>Magic Click</b> around the outside to instantly shave off unwanted borders with mathematically flawless edges!<br>
+          • <b>Interactive Draggable Repositioning:</b> Made a circle that is slightly off-center? No need to undo! Simply hover inside any active red shield to reveal the <b>Move cursor</b>, then click and drag the entire shield across the canvas to nudge, align, and reposition it with pixel-perfect accuracy.<br>
+          • <b>One-Click Dismissal:</b> Click <b>'🔓 Remove Protection Shield'</b> anytime to clear the armor and resume full-canvas editing.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>9. How do I blend or soften sharp edges using the Smudge Tool?</b>
+          <span>Select the <b>Smudge Tool</b> and adjust your brush size. Click and drag along harsh or pixelated borders to softly smear and blend neighboring pixels together—just like wet watercolor paint. It is perfect for smoothing cartoon lines, skin tones, and cutout seams.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>10. What does 'Dynamic Shimmer (Wind Vibe)' do?</b>
+          <span>This procedural algorithm adds a gentle, rhythmic organic shimmer to the transparent outer fringes of your canvas, giving static images a lively, wind-blown motion vibe.</span>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="faq-section-badge" style="color: #a29bfe;">🔀 Module 2: Multi-Layer Combine (Compositing & Motion Graphics)</div>
+
+        <div class="faq-box">
+          <b>11. How do I composite multiple images, GIFs, and videos onto one canvas?</b>
+          <span>Switch to the <b>Multi Layer Combine</b> tab and click 'Browse Files' to upload all your desired PNG graphics, animated GIFs, and video clips simultaneously. Each file loads as an independent draggable layer. The very first layer you upload sets your base canvas dimensions and aspect ratio.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>12. How do I move, scale, and rotate layers directly on the canvas?</b>
+          <span>Click any layer on the canvas to reveal its red-and-white bounding transform box. Click and drag the center to reposition it, pull the corner handles to scale while preserving aspect ratio, and use the <b>Rotate</b> slider or quick-angle buttons (90°, 180°, 270°) to spin it to any degree.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>13. Can different layers have their own independent Chroma Key settings?</b>
+          <span>Yes! Every layer in Module 2 possesses its own dedicated Chroma Key settings. Simply select any layer from the layer list and adjust its key color, tolerance, and opacity in the Chroma Studio panel without affecting other layers.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>14. What is 'Color Studio', and how do I match character lighting with the background?</b>
+          <span>Color Studio provides professional, non-destructive color grading controls for every independent layer in Module 2, powered by native hardware-accelerated canvas filters. It allows you to seamlessly blend characters and props into the lighting, mood, and atmosphere of any background scene!<br>
+          • <b>Comprehensive Controls:</b> Finely calibrate <b>Brightness</b>, <b>Contrast</b>, <b>Saturation</b>, <b>Hue Angle</b>, <b>Temperature</b> (Cool blue ⇄ Warm golden), <b>Color Tint</b>, and <b>Layer Opacity</b>.<br>
+          • <b>Cinematic Lighting Match:</b> In a dark night scene, lower the character's Brightness and dial Temperature into cool negative values to simulate moonlight shadows; in a sunny outdoor scene, boost Saturation and warm Temperature to mimic glowing daylight!<br>
+          • <b>Mouse Wheel Precision:</b> Hover over any slider and scroll your mouse wheel to make ultra-fine 1% or 1-degree adjustments without slipping.<br>
+          • <b>Instant Reset:</b> Click the compact <b>'Reset'</b> button anytime to instantly restore all color parameters back to their neutral defaults.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>15. How do I create 6-point (A to F) trajectory and projectile motion paths?</b>
+          <span>Module 2 features an advanced 6-point trajectory engine (A ➔ B ➔ C ➔ D ➔ E ➔ F) perfect for complex projectile physics, jumping arcs, bouncing balls, and spinning wheels:<br>
+          • <b>Step-by-Step Trajectory:</b> Move your layer to the starting point and click <b>'📍 A'</b>, set arc points on <b>'📍 B'</b> and <b>'📍 C'</b>, apex on <b>'📍 D'</b>, descent on <b>'📍 E'</b>, and landing/bounce on <b>'📍 F'</b>!<br>
+          • <b>Continuous Linear Motion & Spin:</b> Motion flows seamlessly across all waypoints at constant, uninterrupted velocity—ensuring spinning objects (such as footballs, vehicle wheels, or propellers) rotate fluidly without stuttering or unnatural waypoint braking.<br>
+          • <b>Translucent Ghost Preview (Onion Skinning):</b> As you capture points A through F, XToonWeb displays 35% translucent ghost previews of your layer with color-coded tags on the canvas, allowing you to visually inspect the exact trajectory spacing and landing spots before playing!<br>
+          • <b>Orientation & Visual Guide:</b> Each waypoint independently preserves its exact coordinates, rotation angle, scale, and flip orientation. Check <b>'Multicolor Graph Grid'</b> to display color-coded trajectory pathlines directly on your canvas!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>16. How do I add animated text layers, and which fonts are supported?</b>
+          <span>In the 'Text Layer Studio', enter your text. Choose from clean professional typefaces—including Bengali typography (such as <i>Nirmala Sans</i> and <i>Sonar Bangla</i>) alongside English fonts like Impact, Arial, and Georgia. Adjust size, bold, italic, and background box styling, then click '➕ Add'. You can animate your text along motion paths just like image and video layers!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>17. What is the 'Multicolor Graph Grid' guide overlay?</b>
+          <span>Toggling this checkbox displays cyan, magenta, and golden crosshair gridlines across your canvas. It acts as an artistic ruler, helping you align multiple characters, banners, and text elements with mathematical symmetry and precision.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>18. What does the 'Reverse' playback toggle do?</b>
+          <span>Selecting an animated GIF layer and toggling <b>'🔄 Reverse: ON'</b> instantly reverses its playback sequence. For example, a character walking forward will realistically walk backward, opening up endless creative loop possibilities.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>19. How do 'Lasso Cut' and 'Layer Copy' work in Multi-Layer Combine?</b>
+          <span>• <b>✂️ Lasso Cut (Images only):</b> Select any uploaded image, activate 'Lasso Cut', and draw a freehand loop around any body part, prop, or object. It instantly carves that region out into a brand-new independent draggable layer while clearing that area from the source image—perfect for assembling 2D sprite sheets right inside your browser!<br>
+          • <b>📋 Copy Layer (Ctrl + D):</b> Select any layer (Image, animated GIF, video clip, or text) and click 'Copy' (or press Ctrl+D). It creates an instant clone with matching size, rotation, flip states, and Chroma Key settings!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>20. How do Layer In / Out Timings, Scene Trimming, and 'Join Clips' sequence work?</b>
+          <span>Module 2 gives you full non-linear timeline control over your clips with automated 1-click tools:<br>
+          • <b>1-Click Auto-Sequence (🔗 Join Clips):</b> Upload multiple video clips (e.g., Clip 1, Clip 2, Clip 3) and click <b>'🔗 Join Clips'</b> to instantly chain them end-to-end in seamless sequence! It automatically calculates all In/Out timings, locks the Master Scene Duration, and stretches your background image across the entire story with zero overlapping and zero manual math!<br>
+          • <b>One-Click Master Scene Trim (✂️ Match Out):</b> If an imported video is 30 seconds long but you only need a 10-second scene, set that layer's Out time to 10.0s and click <b>'✂️ Match Out'</b>! It immediately locks the Master Scene Duration to 10.0s and matches all background layers so they never cut out early or leave an empty canvas.<br>
+          • <b>Repeat Loops (1x, 2x, 3x):</b> When exporting, selecting 2x or 3x loops seamlessly multiplies your master scene duration (e.g., a 10s scene becomes a 20s or 30s seamless video) with zero manual math!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>21. How do Fade In and Fade Out (Smooth Dissolve) transitions work for cinematic VFX?</b>
+          <span>Module 2 provides dedicated, sub-second <b>Fade In</b> and <b>Fade Out</b> transparency controls for every independent layer. Instead of objects popping abruptly onto the screen, they can smoothly materialize and evaporate into thin air!<br>
+          • <b>Fade In (Smooth Entry):</b> Specify the duration in seconds (e.g., 0.5s) for a layer to transition gradually from 0% to 100% opacity upon arrival.<br>
+          • <b>Fade Out (Atmospheric Dissolve):</b> Set the duration in seconds (e.g., 0.8s) for a layer to seamlessly melt into transparency before its timeline window ends.<br>
+          • <b>Cinematic & Magical VFX:</b> Ideal for atmospheric fog or smoke dissolving into the air, ambient lighting turning on gently, or crafting seamless transformations (such as smoothly cross-dissolving between two different visual assets or character states at the exact same coordinates)!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>22. How does the 'Make Video' export engine work across different browsers?</b>
+          <span>Clicking <b>'🎥 Make Video'</b> renders your multi-layer animation into a high-definition video file. Our intelligent client-side codec engine automatically detects your browser's native capabilities: on Google Chrome and Chromium browsers, it compiles an ultra-compatible <b>MP4 video</b>; on Mozilla Firefox, it exports a pristine <b>WebM (VP9) video</b>. Pre-roll frame buffering guarantees clean video playback with zero start/end black frames.</span>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div class="faq-section-badge" style="color: #fdcb6e;">🕺 Module 3: XToonWeb Animate (2D Character Rigging & Puppet Studio)</div>
+
+        <div class="faq-box">
+          <b>23. How do I upload a custom character, and what sprite layout is required?</b>
+          <span>Switch to the <b>XToonWeb Animate</b> tab and click <b>'📂 Upload Sprite PNG'</b>. Your sprite sheet should contain transparent body parts (head, eye base, pupils, mouth expressions 1–4, upper/lower arms, palms, and legs). Upon upload, XToonWeb's UV auto-mapper automatically binds all 26 anatomical bone parts to the rig!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>24. How do I pose and adjust body joints directly on the canvas?</b>
+          <span>Make sure you are in <b>🛠️ Rig Setup</b> mode. Click and drag any body part (such as a hand, foot, or head) directly on the canvas to place it visually. For fine micro-precision adjustments, use the sidebar sliders for Offset X/Y, 3D Depth Z (layer ordering), and Rotation.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>25. What is the '🔗 Joiner', and why should I keep it turned ON?</b>
+          <span>When the Joiner is OFF, body parts move independently as floating cutouts. Clicking <b>'🔗 Joiner: ON'</b> instantly locks all joints into a realistic connected skeletal hierarchy! Moving the torso or hips will naturally carry the shoulders, limbs, and head along, allowing realistic natural posture control.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>26. When should I activate '👗 Dress Mode' and '🦴 Soft Joint'?</b>
+          <span>• <b>👗 Dress Mode:</b> Essential when your character wears long gowns, robes, sarees, or dresses. It connects the lower legs directly to the waist, bypassing thigh movement to prevent garment clipping.<br>
+          • <b>🦴 Soft Joint:</b> Adds an elastic procedural curve to elbows and knees as they bend, eliminating stiff robotic angles and giving your puppet fluid, rubber-hose style cartoon flexibility.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>27. How do 2D Walk Cycles, Pose Tweening (A-F), and 1-Click Transparent PNG Snapshots work?</b>
+          <span>Module 3 is engineered for seamless 2D character locomotion, walk cycles, and rapid sprite generation:<br>
+          • <b>Effortless 2D Walk Cycles & Gestures:</b> Creating a classic cartoon walk cycle takes just seconds! Pose your character in <b>'📸 A'</b> (Contact Step Left), <b>'📸 B'</b> (Passing Pose), <b>'📸 C'</b> (Contact Step Right), and <b>'📸 D'</b> (Passing Pose). Switch to 'Play Animation' and hit <b>'✨ Pose Tween'</b>—XToonWeb automatically interpolates all limb physics into a fluid, infinite cartoon walk cycle with adjustable motion speed (0.10x to 5.00x)!<br>
+          • <b>📸 1-Click Transparent PNG Snapshots (Zero Green Screen):</b> Need clean walk cycle frames or action sprites without video compression? Click <b>'📸 Capture Transparent PNG'</b> at each step! Our offscreen engine instantly snapshots your puppet's exact walk posture, gesture, or expression into a pure transparent PNG (<code>xtoonweb.in.png</code>) with <b>zero green screen</b>, <b>zero color spill</b>, and all selection wireframes cleanly hidden!<br>
+          • <b>Classic Frame-by-Frame Cutout Animation in Module 2:</b> Capture a quick sequence of transparent walk cycle poses (Step 1, Step 2, Step 3, Step 4), import them into Module 2, set sequential Layer In / Out Timings, and compose traditional hand-drawn style frame-by-frame cartoon walking cycles across any background with zero lag!<br>
+          • <b>1x Seamless Loop Video Export:</b> Clicking <b>'Record 1x Loop & Save'</b> records exactly 1 complete mathematical walk loop with hardware buffer guards ensuring zero dropped end-frames for hitch-free infinite video looping.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>28. How do automatic Lip-Syncing and Eye-Blinking work?</b>
+          <span>• <b>🗣️ LipSync:</b> Toggling 'LipSync: ON' cycles through mouth sprites 1 through 4 in an organic speech cadence. Use the 'Talk Speed' slider to match fast or slow voiceovers.<br>
+          • <b>👀 Auto Blink:</b> Naturally triggers realistic eyelid blinks at randomized, human-like intervals. You can also manually force eyes closed using the 'Eye State' button.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>29. How do I lock swords, microphones, or accessories into a hand? (2-Click Pin Tool)</b>
+          <span>Our revolutionary 2-Click Pin Tool lets you attach any prop or character seamlessly:<br>
+          1. Click <b>'📍 Pin Tool: OFF'</b> to activate pin mode.<br>
+          2. <b>1st Click:</b> Click the accessory or prop on the canvas.<br>
+          3. <b>2nd Click:</b> Click the target palm or body part to lock onto!<br>
+          The item will firmly pin itself to that joint. When you play your animation, the item will automatically track the hand's X, Y, 3D Depth Z, and wrist rotation!</span>
+        </div>
+
+        <div class="faq-box">
+          <b>30. How does the '〰️ 360° Curve Studio' bend limbs and warp meshes?</b>
+          <span>To curve a straight arm, flowy hair, or garment, select the body part and open <b>'〰️ 360° Curve'</b>:<br>
+          1. Click the start point.<br>
+          2. Click the end point.<br>
+          3. Click and drag the middle arc to bend the mesh like a bow!<br>
+          The engine dynamically calculates 360° pixel displacement. Click '✅ Apply to Rig' to instantly project your newly warped limb back onto your live character!</span>
+        </div>
+
+        <!-- SECTION 5 -->
+        <div class="faq-section-badge" style="color: #2ed573;">💾 Exporting, Shortcuts & Commercial Licensing</div>
+
+        <div class="faq-box">
+          <b>31. What keyboard shortcuts and precision controls are supported?</b>
+          <span>• <b>Ctrl + S:</b> Instantly save and download your complete workspace project file (<code>.json</code>) directly to your local computer.<br>
+          • <b>Ctrl + D:</b> Duplicate and clone the currently selected layer with all properties and settings intact (Module 2).<br>
+          • <b>Ctrl + Z:</b> Undo previous edits, drawing strokes, or layer movements.<br>
+          • <b>Ctrl + Y</b> or <b>Ctrl + Shift + Z:</b> Redo canceled actions.<br>
+          • <b>Mouse Scroll Wheel:</b> Hover your cursor over any numeric slider (Tolerance, Rotation, Joint Scale, Duration) and scroll your wheel to make ultra-fine 1-pixel or 1-degree precision adjustments.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>32. Can I use exported GIFs and videos commercially for YouTube or mobile games?</b>
+          <span>Yes, 100% free with no watermarks and no hidden royalty fees! You retain full commercial ownership of all assets, artwork, animations, and videos produced with XToonWeb. You are free to monetize them on YouTube, distribute them in games, or sell them to clients worldwide.</span>
+        </div>
+
+        <div class="faq-box">
+          <b>33. How do I build full multi-scene animated cartoon stories using Module 3 and Module 2?</b>
+          <span>XToonWeb provides a unified, studio-grade 2D animation pipeline supporting both Video Loops and Frame-by-Frame Cutout Sprites:<br>
+          1. <b>Act & Capture (Module 3):</b> Animate your character into actions and choose your export format: export <b>1x Seamless Video Clips</b> (e.g., walking, talking, sitting) OR click <b>'📸 Capture Transparent PNG'</b> to instantly grab pure transparent frame-by-frame sprite sequences (Walk 1, Walk 2, Action poses) with zero green screen!<br>
+          2. <b>Composite & Arrange (Module 2):</b> Switch to Multi-Layer Combine. Import your background scene (room, forest, street) and add your character video clips or transparent PNG frames—all layers import with intelligent canvas-fit and 100% aspect ratio preservation (zero distortion and no arbitrary shrinking).<br>
+          3. <b>Chroma Key or Pure Cutout:</b> If using video clips, activate Chroma Key to isolate your character with clean edges; if using 1-Click Transparent PNG snapshots, your characters are already 100% transparent and ready to animate immediately!<br>
+          4. <b>Chronological Timing, Motion Paths & Master Export:</b> For frame-by-frame transparent PNGs (walk cycles, action poses), set precise sequential <b>Layer In / Out Timings</b> (e.g., 0.0s–0.2s, 0.2s–0.4s, 0.4s–0.6s) so poses pop cleanly one after another with classic cartoon timing; for video clips, click <b>'🔗 Join Clips'</b> to chain scenes end-to-end seamlessly. Finally, animate your character across the background using 6-point (A to F) trajectory motion paths and click <b>'🎥 Make Video'</b> to export your complete cartoon story in one master video file!</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CLEAN MINIMAL COPYRIGHT -->
+    <footer>
+      © 2026 Shiladitya Mandal. All Rights Reserved. • <a href="https://xtoonweb.in" style="color: #00d2d3; text-decoration: none; font-weight: bold;">XToonWeb.IN</a>
+    </footer>
+
+  </div>
+
+  <script>
+    // Live Search Function
+    function searchFaq() {
+      const q = document.getElementById('quickSearch').value.toLowerCase().trim();
+      const boxes = document.querySelectorAll('.faq-box');
+      boxes.forEach(box => {
+        box.style.display = box.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
